@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhq.dao.orderDao">
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+
+<!--    <resultMap id="order" type="orderMap">
+        <id column="staff_id" property="staffId"></id>
+        <result column="goodsList" property="goodsList"></result>
+        <result column="numList" property="=numList"></result>
+        <association property="staff" javaType="staff">
+            <id column="id" property="id"></id>
+            <result column="mobile" property="mobile"></result>
+        </association>
+    </resultMap>-->
+
+    <select id="queryOrderById" resultType="order" parameterType="long">
+        SELECT
+        *
+        from
+        orders
+        where
+        id = #{id}
+    </select>
+
+
+    <select id="queryAllOrder" resultType="order">
+        SELECT
+        *
+        from
+        orders
+    </select>
+</mapper>
